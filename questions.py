@@ -21,7 +21,7 @@ for _ in range(3):
 		user_answer = input("respuesta: ")
 		if user_answer.isdigit():
 			user_answer = int(user_answer) - 1
-			if user_answer > 0 and user_answer < len(answers[question_index]):
+			if user_answer >= 0 and user_answer < len(answers[question_index]):
 				#se verifica si la respuesta es correcta
 				if user_answer == correct_answers_index[question_index]:
 					print("¡correcto!")
