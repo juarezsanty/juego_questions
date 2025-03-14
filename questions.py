@@ -7,7 +7,7 @@ answers = [ ("size()" , "len()" , "lenght()", "count()") , ("3.14" , "'42'" , "1
 #indice de la respuesta correcta para cada pregunta, en el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
 #junta 3 preguntas aleatorias con sus opciones y respuestas correctas en una tupla
-questions_to_ask = random.choices(list(zip(questions, answers, correct_answers_index)), k = 3)
+questions_to_ask = random.sample(list(zip(questions, answers, correct_answers_index)), k = 3)
 #el usuario debe contestar 3 preguntas
 puntaje = 0.0
 for question, answer_choices, correct_answers_index in questions_to_ask:
