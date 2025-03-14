@@ -1,4 +1,5 @@
 import random
+import sys
 # Preguntas para el juego
 questions = [ "¿que funcion se usa para obtener la longitud de una cadena de python?" , "¿cual de las siguientes opciones es un numero entero en python?" , "¿como se solicita entrada del usuario en python?" , "¿cual de las siguientes expresiones es un comentario valido en python?" , "¿cual es el operador de comparacion para verificar si dos valores son iguales?" , ]
 # respuestas posibles para cada pregunta en el mismo orden que las preguntas
@@ -17,11 +18,20 @@ for _ in range(3):
 	
 	#el usuario tiene 2 intentos para responder correctamente
 	for intento in range(2):
-		user_answer = int(input("respuesta: ")) - 1
-		#se verifica si la respuesta es correcta
-		if user_answer == correct_answers_index[question_index]:
-			print("¡correcto!")
-			break
+		user_answer = input("respuesta: ")
+		if user_answer.isdigit():
+			user_answer = int(user_answer) - 1
+			if user_answer > 0 and user_answer < len(answers[question_index]):
+				#se verifica si la respuesta es correcta
+				if user_answer == correct_answers_index[question_index]:
+					print("¡correcto!")
+					break
+			else:
+				print ("respuesta invalida")
+				sys.exit(1)
+		else:
+			print ("respuesta invalida")
+			sys.exit(1)
 	else:
 		#si el usuario no responde correctamente despues de 2 intentos se muestra la respuesta correcta
 		print ("incorrecto. la respuesta correcta es: ")
